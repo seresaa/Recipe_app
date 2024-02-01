@@ -15,9 +15,9 @@ const MealItem: React.FC<MealItemProps> = ({ data}) => {
   console.log(data);
   const navigate = useNavigate();
 
-  const handleItemClick = (idMeal: string) =>{
-    navigate(`/recipeInfo/${idMeal}`);
-  }
+  const handleItemClick = (idMeal: string) => {
+    navigate(`/RecipeInfo/${idMeal}`);
+  };
   return (
     <>
       {!data
@@ -25,7 +25,8 @@ const MealItem: React.FC<MealItemProps> = ({ data}) => {
         : data.map((item) => {
             return (
               <div className="p-8 gap-4 h-70 rounded-md" key={item.strMeal}>
-                <div className="h-70" key={item.idMeal} onClick={() => navigate(`${item.idMeal}`)}>
+                <div className="h-70" key={item.idMeal} onClick={() => handleItemClick(item.idMeal)}>
+
                  
                   <img
                     className="rounded-md"
